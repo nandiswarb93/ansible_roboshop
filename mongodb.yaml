@@ -1,7 +1,8 @@
 - name : setup mongodb server
-  host : mongodb
+  hosts : mongodb
   become : yes
   tasks:
+
   - name : capoy mongodb repo
     ansible.builtin.copy:
       src: mongo.repo
