@@ -6,8 +6,8 @@
     sg_id: "sg-07bc36bfdc3d14144"
     zone_id: "Z0743285P8DPU280FJ3K"
     domain_name: "nandiswar.fun"
-    instance:
-    - rabbitmq
+    # instance:
+    # - rabbitmq # we can pass instances through command line using -e
 
   tasks:
   - name : create ec2 instance
