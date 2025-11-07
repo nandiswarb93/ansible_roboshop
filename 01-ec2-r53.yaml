@@ -9,6 +9,7 @@
     instance:
     - redis
     - mysql
+    - mongodb
 
   tasks:
   - name : create ec2 instance
