@@ -8,6 +8,14 @@
     domain_name: "nandiswar.fun"
     instance:
     - mongodb
+    - redis
+    - rabbitmq
+    - payment
+    - user
+    - cart
+    - backend
+    - mysql
+    - shipping
   tasks:
   - name : create ec2 instance
     amazon.aws.ec2_instance:
@@ -44,3 +52,16 @@
      value :  "{{ item.instances[0].private_ip_address }}"
      overwrite : true 
     loop : "{{ ec2_output.results}}"
+
+    #we are creating one record with public only of forntend
+  - name : create route53 record for forntend
+    amazon.aws.route53:
+      state: present
+      zone : "{{ domain_name }}" #nandiswar.fun
+      record : "{{ domain_name }}"
+      type : A
+      ttl : 1
+      value : "{{ item.instances[0].public_ip_address }}"
+      overwrite : true
+    when : item.item == "frontend"
+    loop : "{{ ec2_output.results }}"
