@@ -8,14 +8,7 @@
     domain_name: "nandiswar.fun"
     instance:
     - mongodb
-    - redis
-    - rabbitmq
-    - payment
-    - user
-    - cart
-    - backend
-    - mysql
-    - shipping
+    
   tasks:
   - name : create ec2 instance
     amazon.aws.ec2_instance:
