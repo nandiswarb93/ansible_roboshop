@@ -38,7 +38,7 @@
   
   - name: createa route53 record
     amazon.aws.route53:
-     state : absent
+     state : present
      zone : "{{ domain_name }}"
      record : "{{ item.item }}.{{ domain_name }}" # mongodb.nandiswar.fun
      type : A
