@@ -7,7 +7,8 @@
     zone_id: "Z0743285P8DPU280FJ3K"
     domain_name: "nandiswar.fun"
     instance:
-    - mongodb
+    - redis
+    - mysql
 
   tasks:
   - name : create ec2 instance
