@@ -6,8 +6,17 @@
     sg_id: "sg-07bc36bfdc3d14144"
     zone_id: "Z0743285P8DPU280FJ3K"
     domain_name: "nandiswar.fun"
-    # instance:
-    # - rabbitmq # we can pass instances through command line using -e
+    instance:
+    - rabbitmq # we can pass instances through command line using -e
+    - cart
+    - catalogue
+    - frontend
+    - mongodb
+    - mysql
+    - payment
+    - redis
+    - shipping
+    - user
 
   tasks:
   - name : create ec2 instance
@@ -21,9 +30,9 @@
     loop: "{{ instances }}"
     register: ec2_output
 
-  - name: print the ec2_output
-    ansible.builtin.debug:
-      msg: "{{ ec2_output }}"
+  # - name: print the ec2_output
+  #   ansible.builtin.debug:
+  #     msg: "{{ ec2_output }}"
       
   # - name : print public_ip
   #   ansible.builtin.debug: 
